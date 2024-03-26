@@ -15,6 +15,7 @@ type User struct {
 func GetAllUsers(ctx iris.Context) {
 
 	db := utils.ConnectToDatabase()
+	defer db.Close()
 
 	
 

@@ -10,6 +10,7 @@ import (
 func UpdateUser(ctx iris.Context) {
 
 	db := utils.ConnectToDatabase()
+	defer db.Close()
 
 	tokenClaims := jwt.Get(ctx).(*utils.UserClaims)
 	

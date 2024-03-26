@@ -1,6 +1,30 @@
 version: '3.8'
 services:
   api:
+    depends_on:
+      - db
+    links:
+      - db
     build: ./irisAPILearning
     ports:
       - '8080:8080'
+    environment:
+      - DB_HOST=tcp(db)
+      - DB_USER=root
+      - DB_PASS=test
+      - DB_NAME=test
+      - SIGN_KEY=signature_hmac_secret_shared_key
+      - ENC_KEY=GCM_AES_256_secret_shared_key_32
+  db:
+    image: mariadb:latest
+    environment:
+      - MARIADB_ROOT_PASSWORD=test
+      - MARIADB_DATABASE=mydatabase
+      - MARIADB_USER=myuser
+      - MARIADB_PASSWORD=mypassword
+    ports:
+      - '3306:3306'
+    volumes:
+      - myapp:/home/node/app
+volumes:
+  myapp:

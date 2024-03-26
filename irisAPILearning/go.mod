@@ -18,6 +18,7 @@ require (
 	github.com/flosch/pongo2/v4 v4.0.2 // indirect
 	github.com/go-sql-driver/mysql v1.8.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
+	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/gomarkdown/markdown v0.0.0-20231222211730-1d6d20845b47 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -26,6 +27,7 @@ require (
 	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/imkira/go-interpol v1.1.0 // indirect
 	github.com/iris-contrib/httpexpect/v2 v2.15.2 // indirect
+	github.com/iris-contrib/middleware/jwt v0.0.0-20240111010557-e34016a4d6ee // indirect
 	github.com/iris-contrib/schema v0.0.6 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/josharian/intern v1.0.0 // indirect

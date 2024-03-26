@@ -23,9 +23,8 @@ func GenerateToken(signer *jwt.Signer, userLogin string) []byte {
 
 
 func ConnectToDatabase() *sql.DB {
-
-db, err := sql.Open("mysql", os.Getenv("DB_USER") + ":" + os.Getenv("DB_PASS") + "@" + os.Getenv("DB_HOST"))
- 
+dbConnectionString  := os.Getenv("DB_USER") + ":" + os.Getenv("DB_PASS") + "@" + os.Getenv("DB_HOST") + "/" + os.Getenv("DB_NAME")
+db, err := sql.Open("mysql", dbConnectionString)
 	if err != nil {
 		panic(err)
 	}

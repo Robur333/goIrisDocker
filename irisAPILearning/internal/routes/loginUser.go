@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"fmt"
 	"restapi/utils"
 	"time"
 
@@ -13,14 +12,13 @@ import (
 
 func Login(ctx iris.Context) {
 	db := utils.ConnectToDatabase()
-
-	fmt.Println(ctx.URLParam("login"))
+	defer db.Close()
 	userLogin := ctx.URLParam("login")
 	userPassword := ctx.URLParam("password")
 
 
 	var dbPassword string
-	rows := db.QueryRow("SELECT password FROM USERS where login=? ",userLogin).Scan(&dbPassword)
+	rows := db.QueryRow("SELECT password FROM users where login=? ",userLogin).Scan(&dbPassword)
 	
 	if err := rows; err != nil {
 		ctx.StatusCode(iris.StatusInternalServerError)

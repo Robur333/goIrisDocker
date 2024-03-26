@@ -9,7 +9,8 @@ import (
 
 func Register(ctx iris.Context) {
     db := utils.ConnectToDatabase()
-  
+    defer db.Close()
+
     userLogin := ctx.URLParam("login")
     userPassword := ctx.URLParam("password")
     var dbLogin string
